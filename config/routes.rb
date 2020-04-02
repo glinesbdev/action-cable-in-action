@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'home#index'
+  get 'home/index'
   devise_for :users
+  root to: 'home#index'
   resources :messages
   resources :chatrooms
 end

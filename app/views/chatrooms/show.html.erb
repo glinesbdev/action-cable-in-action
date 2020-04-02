@@ -1,0 +1,11 @@
+<h2><%= @chatroom.topic %></h2>
+
+<ul id="messages">
+  <% @chatroom.messages.each do |message| %>
+    <li><%= message.content %> - <%= message.user.email %></li>
+  <% end %>
+</ul>
+
+<%= render partial: 'messages/form', locals: { message: @message, chatroom: @chatroom } %>
+
+<%= link_to  'All Rooms', chatrooms_path %>

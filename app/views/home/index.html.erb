@@ -1,0 +1,8 @@
+<h1>Rails Chatroom ActionCable Example</h1>
+<p>What people are talking about:</p>
+
+<ul>
+  <% @chatrooms.each do |room| %>
+    <li><%= link_to room.topic, chatroom_path(room) %></li>
+  <% end %>
+</ul>
