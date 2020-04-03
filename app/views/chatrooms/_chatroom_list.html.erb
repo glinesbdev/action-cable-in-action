@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <% chatrooms.each do |room| %>
+    <%= link_to chatroom_path(room) do %>
+      <li class="list-group-item"><%= room.topic %></li>
+    <% end %>
+  <% end %>
+</ul>

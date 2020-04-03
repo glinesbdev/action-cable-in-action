@@ -1,11 +1,20 @@
 <h2><%= @chatroom.topic %></h2>
 
-<ul id="messages">
-  <% @chatroom.messages.each do |message| %>
-    <li><%= message.content %> - <%= message.user.email %></li>
-  <% end %>
+<nav class="nav">
+  <%= link_to  'All Rooms', chatrooms_path, class: "nav-link" %>
 </ul>
 
-<%= render partial: 'messages/form', locals: { message: @message, chatroom: @chatroom } %>
+<div class="d-flex flex-column justify-content-start message-container">
+  <div id="messages" class="message-list list-group px-3">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message d-flex flex-column list-group-item">
+        <span class="mb-3">
+          <%= message.user.email %>
+        </span>
+        <span><%= message.content %></span>
+      </div>
+    <% end %>
+  </div>
 
-<%= link_to  'All Rooms', chatrooms_path %>
+  <%= render partial: 'messages/form', locals: { message: @message, chatroom: @chatroom } %>
+</div>

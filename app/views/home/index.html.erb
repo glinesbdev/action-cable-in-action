@@ -1,8 +1,3 @@
-<h1>Rails Chatroom ActionCable Example</h1>
-<p>What people are talking about:</p>
+<h3>Come chat with us!</h3>
 
-<ul>
-  <% @chatrooms.each do |room| %>
-    <li><%= link_to room.topic, chatroom_path(room) %></li>
-  <% end %>
-</ul>
+<%= render partial: 'chatrooms/chatroom_list', locals: { chatrooms: @chatrooms } %>

@@ -2,25 +2,31 @@
 <html>
 
 <head>
-  <title>Action Cable In Action</title>
+  <title>Chatters</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <%= stylesheet_link_tag 'reset.min' %>
+  <%= stylesheet_link_tag 'bootstrap.min' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render partial: 'layouts/navbar' %>
 
-  <% if current_user %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Login', new_user_session_path %>
-  <% end %>
+  <div class="container mt-5">
+    <% if notice %>
+      <p class="alert alert-primary"><%= notice %></p>
+    <% end %>
 
-  <%= yield %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+  </div>
 </body>
 
 </html>
